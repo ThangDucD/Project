@@ -14,9 +14,7 @@ class ReadBookPage extends StatefulWidget {
 }
 
 class _ReadBookPageState extends State<ReadBookPage> {
-  final ValueNotifier<int> highlightedIndex = ValueNotifier<int>(
-    -1,
-  ); // Sử dụng ValueNotifier
+  final ValueNotifier<int> highlightedIndex = ValueNotifier<int>(-1);
   Timer? timer;
   String displayedText = "";
   List<String> words = [];
@@ -24,7 +22,7 @@ class _ReadBookPageState extends State<ReadBookPage> {
   @override
   void dispose() {
     timer?.cancel();
-    highlightedIndex.dispose(); // Hủy ValueNotifier khi widget bị hủy
+    highlightedIndex.dispose();
     super.dispose();
   }
 
@@ -35,12 +33,6 @@ class _ReadBookPageState extends State<ReadBookPage> {
       body: FutureBuilder<DataModel>(
         future: loadData(),
         builder: (context, snapshot) => buildFutureContent(snapshot),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          final player = AudioCache();
-          player.load('output.wav');
-        },
       ),
     );
   }
@@ -62,15 +54,11 @@ class _ReadBookPageState extends State<ReadBookPage> {
       words = displayedText.split(' ');
       if (timer == null) {
         startHighlighting(words);
-        // Chỉ khởi động timer một lần
       }
       return ValueListenableBuilder<int>(
         valueListenable: highlightedIndex,
         builder: (context, value, child) {
-          return HighlightedText(
-            text: displayedText,
-            highlightedIndex: value, // Chỉ số cập nhật từ ValueNotifier
-          );
+          return HighlightedText(text: displayedText, highlightedIndex: value);
         },
       );
     }
@@ -79,12 +67,12 @@ class _ReadBookPageState extends State<ReadBookPage> {
 
   void startHighlighting(List<String> words) {
     timer?.cancel();
-    highlightedIndex.value = -1; // Reset index
+    highlightedIndex.value = -1;
     timer = Timer.periodic(Duration(milliseconds: 1000), (timer) {
       if (highlightedIndex.value < words.length - 1) {
-        highlightedIndex.value++; // Cập nhật ValueNotifier
+        highlightedIndex.value++;
       } else {
-        timer.cancel(); // Dừng timer khi hoàn tất
+        timer.cancel();
       }
     });
   }

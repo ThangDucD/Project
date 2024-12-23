@@ -3,9 +3,9 @@
 
 typedef struct
 {
-    int num_roots; // Số nghiệm: 0 (không có nghiệm), 1 (nghiệm kép), 2 (hai nghiệm)
-    double root1;  // Nghiệm thứ nhất
-    double root2;  // Nghiệm thứ hai
+    int num_roots;
+    double root1;
+    double root2;
 } QuadraticResult;
 
 QuadraticResult solve_quadratic(double a, double b, double c)
@@ -13,15 +13,15 @@ QuadraticResult solve_quadratic(double a, double b, double c)
     QuadraticResult result;
     if (a == 0)
     {
-        // Không phải phương trình bậc 2
+
         if (b == 0)
         {
-            result.num_roots = 0; // Không có nghiệm
+            result.num_roots = 0;
         }
         else
         {
             result.num_roots = 1;
-            result.root1 = -c / b; // Nghiệm tuyến tính
+            result.root1 = -c / b;
         }
         return result;
     }
@@ -40,7 +40,7 @@ QuadraticResult solve_quadratic(double a, double b, double c)
     }
     else
     {
-        result.num_roots = 0; // Vô nghiệm
+        result.num_roots = 0;
     }
     return result;
 }

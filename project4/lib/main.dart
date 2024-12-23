@@ -1,19 +1,17 @@
-import 'dart:ffi'; // Thư viện FFI
+import 'dart:ffi';
 import 'package:flutter/material.dart';
 
-import 'package:project4/quadratic.dart'; // Để tải thư viện chia sẻ
+import 'package:project4/quadratic.dart';
 
-// Cấu trúc trả về từ hàm C
 final class QuadraticResult extends Struct {
   @Int32()
-  external int num_roots; // Số nghiệm
+  external int num_roots;
   @Double()
-  external double root1; // Nghiệm 1
+  external double root1;
   @Double()
-  external double root2; // Nghiệm 2
+  external double root2;
 }
 
-// Định nghĩa hàm C trong Dart
 typedef SolveQuadraticC =
     QuadraticResult Function(Double a, Double b, Double c);
 typedef SolveQuadraticDart =

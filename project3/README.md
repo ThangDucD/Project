@@ -1,16 +1,3 @@
-# project3
+# Chưa hoàn thành
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+em đã highlight được từng chữ trong text nhưng em đang mắc đoạn thêm sound vào,vì em đang dùng một máy ảo chạy trên web và cái audio không hỗ trợ nên em đã không hoàn thành được
